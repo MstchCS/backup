@@ -1,0 +1,291 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* UKŁAD STRONY */
+html, body {
+  height: 100%;
+  font-family: 'Roboto', sans-serif;
+  background: #e0e0e0;
+  color: #333;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+#root,
+.app-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* NAGŁÓWEK */
+.top-bar {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background: linear-gradient(135deg, #ff7e5f, #feb47b);
+  padding: 10px 20px;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.logo-ai {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 15px;
+}
+
+.main-nav ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.main-nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: background 0.3s;
+}
+
+.main-nav ul li a:hover,
+.main-nav ul li a.active {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* LAYOUT */
+.container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 600px;
+  margin: 20px auto;
+  gap: 20px;
+  padding: 0 15px;
+}
+
+.sidebar {
+  display: none !important;
+}
+
+/* GŁÓWNA ZAWARTOŚĆ */
+main {
+  flex: 1;
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+/* SEKCJA HERO */
+.hero {
+  position: relative;
+  height: 300px;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 30px;
+  background: url('https://source.unsplash.com/featured/?finance,city') no-repeat center center/cover;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  animation: pulse 6s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 0.7; }
+}
+
+.hero-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  text-align: center;
+}
+
+.hero-content h2 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+.hero-content p {
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+
+.hero-content button {
+  padding: 10px 25px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 30px;
+  background: #ff7e5f;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.hero-content button:hover {
+  background: #feb47b;
+}
+
+/* SEKCJA: Dashboard / Raporty */
+.tab-content {
+  animation: fadeIn 0.4s;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.tab-content h2 {
+  font-size: 1.6rem;
+  margin-bottom: 15px;
+  border-bottom: 3px solid #ff7e5f;
+  padding-bottom: 5px;
+}
+
+/* KARTY TRANSAKCJI */
+.cards-wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.transaction-card {
+  background: white;
+  border-radius: 10px;
+  padding: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  transition: transform 0.2s ease;
+}
+
+.transaction-card:hover {
+  transform: translateY(-5px);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.card-header .type {
+  padding: 4px 8px;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  color: white;
+}
+
+.card-header .income {
+  background-color: #4caf50;
+}
+
+.card-header .expense {
+  background-color: #f44336;
+}
+
+.amount {
+  font-size: 1.1rem;
+}
+
+.card-body p {
+  margin: 6px 0;
+}
+
+/* FORMULARZ */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+form button {
+  align-self: flex-start;
+  padding: 10px 20px;
+  background: #ff7e5f;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+form button:hover {
+  background: #feb47b;
+}
+
+/* STOPKA */
+footer {
+  margin-top: auto;
+  padding: 20px;
+  background: #fff;
+  border-top: 1px solid #ddd;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #777;
+}
+
+footer p {
+  margin: 5px 0;
+}
+
+footer a {
+  color: #ff7e5f;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
